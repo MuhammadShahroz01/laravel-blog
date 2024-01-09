@@ -19,6 +19,10 @@ Route::get('/', function () {
 Route::get('login',function () {
     return view('auth.login');
 });
+Route::get('signup',function () {
+    return view('auth.signup');
+});
+Route::post('user/register',[App\Http\Controllers\AuthController::class,'update'])->name('user.register');
 Route::prefix('auth')->group(function () {
     Route::post('/',[App\Http\Controllers\AuthController::class,'store'])->name('auth');
 });
